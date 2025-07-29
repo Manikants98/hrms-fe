@@ -227,7 +227,7 @@ const AttendanceReports: React.FC = () => {
   const totalAbsentDays = reportData.reduce((sum, emp) => sum + emp.absentDays, 0);
 
   const GridView = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
       {filteredReports.map((employee) => (
         <div
           key={employee.id}
