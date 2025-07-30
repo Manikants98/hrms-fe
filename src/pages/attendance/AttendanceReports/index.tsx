@@ -221,10 +221,10 @@ const AttendanceReports: React.FC = () => {
   // Calculate statistics
   const totalEmployees = reportData.length;
   const avgAttendanceRate = (
-    reportData.reduce((sum, emp) => sum + emp.attendanceRate, 0) / totalEmployees
+    reportData.reduce((a, b) => a + b.attendanceRate, 0) / totalEmployees
   ).toFixed(1);
-  const totalPresentDays = reportData.reduce((sum, emp) => sum + emp.presentDays, 0);
-  const totalAbsentDays = reportData.reduce((sum, emp) => sum + emp.absentDays, 0);
+  const totalPresentDays = reportData.reduce((a, b) => a + b.presentDays, 0);
+  const totalAbsentDays = reportData.reduce((a, b) => a + b.absentDays, 0);
 
   const GridView = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
