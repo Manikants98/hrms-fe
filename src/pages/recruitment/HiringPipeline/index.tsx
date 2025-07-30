@@ -20,6 +20,15 @@ import {
   RxTimer,
 } from 'react-icons/rx';
 
+type Source = 'linkedin' | 'job_board' | 'referral' | 'career_page' | 'social_media';
+type Priority = 'high' | 'medium' | 'low';
+
+interface stageHistory {
+  stage: string;
+  enteredDate: string;
+  duration: number;
+}
+
 interface PipelineCandidate {
   id: string;
   firstName: string;
@@ -31,19 +40,15 @@ interface PipelineCandidate {
   department: string;
   currentStage: string;
   stageUpdatedDate: string;
-  source: 'linkedin' | 'job_board' | 'referral' | 'career_page' | 'social_media';
-  priority: 'high' | 'medium' | 'low';
+  source: Source;
+  priority: Priority;
   rating: number;
   experienceYears: number;
   expectedSalary: number;
   skills: string[];
   nextAction: string;
   nextActionDate: string;
-  stageHistory: Array<{
-    stage: string;
-    enteredDate: string;
-    duration: number;
-  }>;
+  stageHistory: Array<stageHistory>;
 }
 
 interface PipelineStage {
