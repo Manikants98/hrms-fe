@@ -4,7 +4,6 @@ import {
   RxCalendar,
   RxCheckCircled,
   RxDotsVertical,
-  RxDownload,
   RxEnvelopeClosed,
   RxEyeOpen,
   RxFileText,
@@ -77,7 +76,6 @@ interface PipelineMetrics {
 const HiringPipeline: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [searchTerm, setSearchTerm] = useState('');
-  const [departmentFilter, setDepartmentFilter] = useState<string>('all');
   const [stageFilter, setStageFilter] = useState<string>('all');
   const [sourceFilter, setSourceFilter] = useState<string>('all');
   const [priorityFilter, setPriorityFilter] = useState<string>('all');
@@ -454,10 +452,6 @@ const HiringPipeline: React.FC = () => {
   // Get all candidates for filtering
   const allCandidates = pipelineStages.flatMap((stage) => stage.candidates);
 
-  const departments = [
-    'all',
-    ...Array.from(new Set(allCandidates.map((candidate) => candidate.department))),
-  ];
   const sources = ['all', 'linkedin', 'job_board', 'referral', 'career_page', 'social_media'];
   const priorities = ['all', 'high', 'medium', 'low'];
 
@@ -470,12 +464,10 @@ const HiringPipeline: React.FC = () => {
         candidate.appliedPosition.toLowerCase().includes(searchTerm.toLowerCase()) ||
         candidate.skills.some((skill) => skill.toLowerCase().includes(searchTerm.toLowerCase()));
 
-      const matchesDepartment =
-        departmentFilter === 'all' || candidate.department === departmentFilter;
       const matchesSource = sourceFilter === 'all' || candidate.source === sourceFilter;
       const matchesPriority = priorityFilter === 'all' || candidate.priority === priorityFilter;
 
-      return matchesSearch && matchesDepartment && matchesSource && matchesPriority;
+      return matchesSearch && matchesSource && matchesPriority;
     });
   };
 
