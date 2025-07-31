@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { Chip } from '@mui/material';
+import React, { useState } from 'react';
 import {
   RxBadge,
   RxBarChart,
@@ -27,6 +28,7 @@ import {
   RxUpdate,
   RxVideo,
 } from 'react-icons/rx';
+import Clock from '../../../shared/clock';
 
 interface Interview {
   id: string;
@@ -41,7 +43,7 @@ interface Interview {
   interviewRound: string;
   scheduledDate: string;
   scheduledTime: string;
-  duration: number; // in minutes
+  duration: number;
   timezone: string;
   location: {
     type: 'office' | 'video' | 'phone';
@@ -68,83 +70,17 @@ interface Interview {
 }
 
 const Interviews: React.FC = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [interviewTypeFilter, setInterviewTypeFilter] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
 
-  // Update current time every second
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Custom Chip component (same as other components)
-  const Chip = ({
-    label,
-    variant = 'filled',
-    color = 'default',
-    size = 'medium',
-    className = '',
-  }: {
-    label: string;
-    variant?: 'filled' | 'outlined';
-    color?: 'default' | 'primary' | 'success' | 'error' | 'warning';
-    size?: 'small' | 'medium';
-    className?: string;
-  }) => {
-    const getColorClasses = () => {
-      const baseClasses = size === 'small' ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-sm';
-
-      if (variant === 'outlined') {
-        switch (color) {
-          case 'primary':
-            return `${baseClasses} border border-blue-500 text-blue-700 bg-blue-50`;
-          case 'success':
-            return `${baseClasses} border border-green-500 text-green-700 bg-green-50`;
-          case 'error':
-            return `${baseClasses} border border-red-500 text-red-700 bg-red-50`;
-          case 'warning':
-            return `${baseClasses} border border-yellow-500 text-yellow-700 bg-yellow-50`;
-          default:
-            return `${baseClasses} border border-gray-300 text-gray-700 bg-gray-50`;
-        }
-      } else {
-        switch (color) {
-          case 'primary':
-            return `${baseClasses} bg-blue-500 text-white`;
-          case 'success':
-            return `${baseClasses} bg-green-500 text-white`;
-          case 'error':
-            return `${baseClasses} bg-red-500 text-white`;
-          case 'warning':
-            return `${baseClasses} bg-yellow-500 text-white`;
-          default:
-            return `${baseClasses} bg-gray-500 text-white`;
-        }
-      }
-    };
-
-    return (
-      <span
-        className={`inline-flex items-center rounded-full font-medium ${getColorClasses()} ${className}`}
-      >
-        {label}
-      </span>
-    );
-  };
-
-  // Mock interviews data
   const interviews: Interview[] = [
     {
       id: 'INT001',
       candidateId: 'CAND001',
       candidateName: 'Sarah Johnson',
-      candidateAvatar:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
+      candidateAvatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
       candidateEmail: 'sarah.johnson@email.com',
       candidatePhone: '+91-9876543210',
       appliedPosition: 'Senior Frontend Developer',
@@ -164,16 +100,14 @@ const Interviews: React.FC = () => {
         {
           id: 'EMP001',
           name: 'Raj Patel',
-          avatar:
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
           title: 'Engineering Manager',
           email: 'raj.patel@company.com',
         },
         {
           id: 'EMP002',
           name: 'Priya Sharma',
-          avatar:
-            'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
           title: 'Senior Tech Lead',
           email: 'priya.sharma@company.com',
         },
@@ -188,8 +122,7 @@ const Interviews: React.FC = () => {
       id: 'INT002',
       candidateId: 'CAND002',
       candidateName: 'Michael Chen',
-      candidateAvatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      candidateAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
       candidateEmail: 'michael.chen@email.com',
       candidatePhone: '+91-8765432109',
       appliedPosition: 'Product Manager',
@@ -208,8 +141,7 @@ const Interviews: React.FC = () => {
         {
           id: 'EMP003',
           name: 'Anita Verma',
-          avatar:
-            'https://images.unsplash.com/photo-1494790108755-2616b69a2c96?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
           title: 'HR Manager',
           email: 'anita.verma@company.com',
         },
@@ -217,8 +149,7 @@ const Interviews: React.FC = () => {
       status: 'completed',
       priority: 'medium',
       notes: 'Assess cultural fit and leadership experience.',
-      feedback:
-        'Excellent communication skills and strong product sense. Recommended for next round.',
+      feedback: 'Excellent communication skills and strong product sense. Recommended for next round.',
       rating: 4.5,
       result: 'pass',
       nextStep: 'Final Interview with VP',
@@ -229,8 +160,7 @@ const Interviews: React.FC = () => {
       id: 'INT003',
       candidateId: 'CAND003',
       candidateName: 'Emily Davis',
-      candidateAvatar:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      candidateAvatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
       candidateEmail: 'emily.davis@email.com',
       candidatePhone: '+91-7654321098',
       appliedPosition: 'UX Designer',
@@ -250,8 +180,7 @@ const Interviews: React.FC = () => {
         {
           id: 'EMP004',
           name: 'Lisa Anderson',
-          avatar:
-            'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
           title: 'Design Director',
           email: 'lisa.anderson@company.com',
         },
@@ -266,8 +195,7 @@ const Interviews: React.FC = () => {
       id: 'INT004',
       candidateId: 'CAND004',
       candidateName: 'David Wilson',
-      candidateAvatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+      candidateAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
       candidateEmail: 'david.wilson@email.com',
       candidatePhone: '+91-6543210987',
       appliedPosition: 'DevOps Engineer',
@@ -287,8 +215,7 @@ const Interviews: React.FC = () => {
         {
           id: 'EMP005',
           name: 'Suresh Kumar',
-          avatar:
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
           title: 'DevOps Lead',
           email: 'suresh.kumar@company.com',
         },
@@ -304,8 +231,7 @@ const Interviews: React.FC = () => {
       id: 'INT005',
       candidateId: 'CAND005',
       candidateName: 'Priya Mehta',
-      candidateAvatar:
-        'https://images.unsplash.com/photo-1494790108755-2616b69a2c96?w=150&h=150&fit=crop&crop=face',
+      candidateAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
       candidateEmail: 'priya.mehta@email.com',
       candidatePhone: '+91-5432109876',
       appliedPosition: 'Data Scientist',
@@ -324,8 +250,7 @@ const Interviews: React.FC = () => {
         {
           id: 'EMP006',
           name: 'Dr. Anita Verma',
-          avatar:
-            'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
           title: 'Head of Analytics',
           email: 'anita.verma@company.com',
         },
@@ -340,8 +265,7 @@ const Interviews: React.FC = () => {
       id: 'INT006',
       candidateId: 'CAND006',
       candidateName: 'Arjun Singh',
-      candidateAvatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      candidateAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
       candidateEmail: 'arjun.singh@email.com',
       candidatePhone: '+91-4321098765',
       appliedPosition: 'Sales Manager',
@@ -360,8 +284,7 @@ const Interviews: React.FC = () => {
         {
           id: 'EMP007',
           name: 'Rajesh Kumar',
-          avatar:
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
           title: 'CEO',
           email: 'rajesh.kumar@company.com',
         },
@@ -375,31 +298,19 @@ const Interviews: React.FC = () => {
     },
   ];
 
-  const statuses = [
-    'all',
-    'scheduled',
-    'ongoing',
-    'completed',
-    'cancelled',
-    'no_show',
-    'rescheduled',
-  ];
+  const statuses = ['all', 'scheduled', 'ongoing', 'completed', 'cancelled', 'no_show', 'rescheduled'];
   const interviewTypes = ['all', 'screening', 'technical', 'hr', 'managerial', 'final', 'panel'];
 
-  // Filter interviews
   const filteredInterviews = interviews.filter((interview) => {
     const matchesSearch =
       interview.candidateName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       interview.appliedPosition.toLowerCase().includes(searchTerm.toLowerCase()) ||
       interview.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
       interview.interviewRound.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      interview.interviewers.some((interviewer) =>
-        interviewer.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      interview.interviewers.some((interviewer) => interviewer.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     const matchesStatus = statusFilter === 'all' || interview.status === statusFilter;
-    const matchesInterviewType =
-      interviewTypeFilter === 'all' || interview.interviewType === interviewTypeFilter;
+    const matchesInterviewType = interviewTypeFilter === 'all' || interview.interviewType === interviewTypeFilter;
 
     return matchesSearch && matchesStatus && matchesInterviewType;
   });
@@ -544,8 +455,7 @@ const Interviews: React.FC = () => {
             <div className="flex items-center justify-between mb-1">
               <span className="text-xs text-gray-500">Date & Time:</span>
               <span className="text-sm font-medium text-gray-900">
-                {new Date(interview.scheduledDate).toLocaleDateString()} at{' '}
-                {interview.scheduledTime}
+                {new Date(interview.scheduledDate).toLocaleDateString()} at {interview.scheduledTime}
               </span>
             </div>
             <div className="flex items-center justify-between">
@@ -558,9 +468,7 @@ const Interviews: React.FC = () => {
           <div className="mb-4">
             <div className="flex items-center space-x-2 mb-1">
               {getLocationIcon(interview.location.type)}
-              <span className="text-sm font-medium text-gray-700 capitalize">
-                {interview.location.type}
-              </span>
+              <span className="text-sm font-medium text-gray-700 capitalize">{interview.location.type}</span>
             </div>
             <p className="text-sm text-gray-600">{interview.location.details}</p>
             {interview.location.meetingLink && (
@@ -574,11 +482,7 @@ const Interviews: React.FC = () => {
             <div className="space-y-2">
               {interview.interviewers.map((interviewer, index) => (
                 <div key={index} className="flex items-center space-x-2">
-                  <img
-                    src={interviewer.avatar}
-                    alt={interviewer.name}
-                    className="w-6 h-6 rounded-full object-cover"
-                  />
+                  <img src={interviewer.avatar} alt={interviewer.name} className="w-6 h-6 rounded-full object-cover" />
                   <div>
                     <p className="text-sm font-medium text-gray-900">{interviewer.name}</p>
                     <p className="text-xs text-gray-500">{interviewer.title}</p>
@@ -610,10 +514,7 @@ const Interviews: React.FC = () => {
           {/* Status and Actions */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
             <Chip
-              label={
-                interview.status.charAt(0).toUpperCase() +
-                interview.status.slice(1).replace('_', ' ')
-              }
+              label={interview.status.charAt(0).toUpperCase() + interview.status.slice(1).replace('_', ' ')}
               size="small"
               color={getStatusColor(interview.status)}
               variant="filled"
@@ -690,9 +591,7 @@ const Interviews: React.FC = () => {
                       ></div>
                     </div>
                     <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">
-                        {interview.candidateName}
-                      </div>
+                      <div className="text-sm font-medium text-gray-900">{interview.candidateName}</div>
                       <div className="text-sm text-gray-500">{interview.appliedPosition}</div>
                     </div>
                   </div>
@@ -701,9 +600,7 @@ const Interviews: React.FC = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="flex items-center justify-center space-x-1 mb-1">
                     {getInterviewTypeIcon(interview.interviewType)}
-                    <span className="text-sm font-medium text-gray-900 capitalize">
-                      {interview.interviewType}
-                    </span>
+                    <span className="text-sm font-medium text-gray-900 capitalize">{interview.interviewType}</span>
                   </div>
                   <div className="text-xs text-gray-500">{interview.interviewRound}</div>
                   <div className="text-xs text-gray-500">{interview.department}</div>
@@ -729,9 +626,7 @@ const Interviews: React.FC = () => {
                       />
                     ))}
                     {interview.interviewers.length > 2 && (
-                      <span className="text-xs text-gray-500">
-                        +{interview.interviewers.length - 2}
-                      </span>
+                      <span className="text-xs text-gray-500">+{interview.interviewers.length - 2}</span>
                     )}
                   </div>
                   <div className="text-xs text-gray-500 mt-1">
@@ -743,9 +638,7 @@ const Interviews: React.FC = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="flex items-center justify-center space-x-1">
                     {getLocationIcon(interview.location.type)}
-                    <span className="text-sm text-gray-900 capitalize">
-                      {interview.location.type}
-                    </span>
+                    <span className="text-sm text-gray-900 capitalize">{interview.location.type}</span>
                   </div>
                   <div className="text-xs text-gray-500">{interview.location.details}</div>
                   {interview.location.meetingLink && (
@@ -757,10 +650,7 @@ const Interviews: React.FC = () => {
                   <div className="flex items-center justify-center space-x-2">
                     {getStatusIcon(interview.status)}
                     <Chip
-                      label={
-                        interview.status.charAt(0).toUpperCase() +
-                        interview.status.slice(1).replace('_', ' ')
-                      }
+                      label={interview.status.charAt(0).toUpperCase() + interview.status.slice(1).replace('_', ' ')}
                       size="small"
                       color={getStatusColor(interview.status)}
                       variant="filled"
@@ -772,9 +662,7 @@ const Interviews: React.FC = () => {
                   {interview.rating ? (
                     <div className="flex items-center justify-center space-x-1">
                       {renderStars(interview.rating)}
-                      <span className="text-xs text-gray-600 ml-1">
-                        ({interview.rating.toFixed(1)})
-                      </span>
+                      <span className="text-xs text-gray-600 ml-1">({interview.rating.toFixed(1)})</span>
                     </div>
                   ) : (
                     <span className="text-xs text-gray-400">Not rated</span>
@@ -815,23 +703,9 @@ const Interviews: React.FC = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Interviews</h1>
-            <p className="text-gray-600">
-              Schedule and manage candidate interviews throughout the hiring process
-            </p>
+            <p className="text-gray-600">Schedule and manage candidate interviews throughout the hiring process</p>
           </div>
-          <div className="text-right">
-            <div className="text-2xl font-bold text-primary">
-              {currentTime.toLocaleTimeString()}
-            </div>
-            <div className="text-sm text-gray-500">
-              {currentTime.toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </div>
-          </div>
+          <Clock />
         </div>
       </div>
 
@@ -975,9 +849,7 @@ const Interviews: React.FC = () => {
             <button
               onClick={() => setViewMode('grid')}
               className={`p-2 rounded-md transition-colors ${
-                viewMode === 'grid'
-                  ? 'bg-white text-primary shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'grid' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <RxGrid className="w-4 h-4" />
@@ -985,9 +857,7 @@ const Interviews: React.FC = () => {
             <button
               onClick={() => setViewMode('table')}
               className={`p-2 rounded-md transition-colors ${
-                viewMode === 'table'
-                  ? 'bg-white text-primary shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'table' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <RxRows className="w-4 h-4" />

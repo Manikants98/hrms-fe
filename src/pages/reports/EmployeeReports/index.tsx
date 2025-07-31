@@ -1263,7 +1263,7 @@ const EmployeeReports: React.FC = () => {
           <div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Employee Reports</h1>
             <p className="text-gray-600">
-              Generate, manage, and analyze comprehensive employee reports for data-driven HR decisions[7][15]
+              Generate, manage, and analyze comprehensive employee reports for data-driven HR decisions
             </p>
           </div>
           <Clock />

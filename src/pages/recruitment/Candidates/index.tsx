@@ -1,3 +1,4 @@
+import { Chip } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import {
   RxBadge,
@@ -83,61 +84,6 @@ const Candidates: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Custom Chip component (same as other components)
-  const Chip = ({
-    label,
-    variant = 'filled',
-    color = 'default',
-    size = 'medium',
-    className = '',
-  }: {
-    label: string;
-    variant?: 'filled' | 'outlined';
-    color?: 'default' | 'primary' | 'success' | 'error' | 'warning';
-    size?: 'small' | 'medium';
-    className?: string;
-  }) => {
-    const getColorClasses = () => {
-      const baseClasses = size === 'small' ? 'px-2 py-1 text-xs' : 'px-3 py-1 text-sm';
-
-      if (variant === 'outlined') {
-        switch (color) {
-          case 'primary':
-            return `${baseClasses} border border-primary-500 text-primary-700 bg-primary-50`;
-          case 'success':
-            return `${baseClasses} border border-green-500 text-green-700 bg-green-50`;
-          case 'error':
-            return `${baseClasses} border border-red-500 text-red-700 bg-red-50`;
-          case 'warning':
-            return `${baseClasses} border border-yellow-500 text-yellow-700 bg-yellow-50`;
-          default:
-            return `${baseClasses} border border-gray-300 text-gray-700 bg-gray-50`;
-        }
-      } else {
-        switch (color) {
-          case 'primary':
-            return `${baseClasses} bg-primary-500 text-white`;
-          case 'success':
-            return `${baseClasses} bg-green-500 text-white`;
-          case 'error':
-            return `${baseClasses} bg-red-500 text-white`;
-          case 'warning':
-            return `${baseClasses} bg-yellow-500 text-white`;
-          default:
-            return `${baseClasses} bg-gray-500 text-white`;
-        }
-      }
-    };
-
-    return (
-      <span
-        className={`inline-flex items-center rounded-full font-medium ${getColorClasses()} ${className}`}
-      >
-        {label}
-      </span>
-    );
-  };
-
   // Mock candidates data
   const candidates: Candidate[] = [
     {
@@ -146,8 +92,7 @@ const Candidates: React.FC = () => {
       lastName: 'Johnson',
       email: 'sarah.johnson@email.com',
       phone: '+91-9876543210',
-      avatar:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
+      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
       currentJobTitle: 'Senior Frontend Developer',
       currentEmployer: 'Microsoft India',
       location: {
@@ -168,8 +113,7 @@ const Candidates: React.FC = () => {
       department: 'Engineering',
       hiringManager: {
         name: 'Raj Patel',
-        avatar:
-          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
         title: 'Engineering Manager',
       },
       rating: 4.5,
@@ -189,8 +133,7 @@ const Candidates: React.FC = () => {
       lastName: 'Kumar',
       email: 'arjun.kumar@email.com',
       phone: '+91-8765432109',
-      avatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
       currentJobTitle: 'Product Manager',
       currentEmployer: 'Flipkart',
       location: {
@@ -211,8 +154,7 @@ const Candidates: React.FC = () => {
       department: 'Product',
       hiringManager: {
         name: 'Priya Sharma',
-        avatar:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
         title: 'VP Product',
       },
       rating: 4.8,
@@ -231,8 +173,7 @@ const Candidates: React.FC = () => {
       lastName: 'Patel',
       email: 'meera.patel@email.com',
       phone: '+91-7654321098',
-      avatar:
-        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
       currentJobTitle: 'UX Designer',
       currentEmployer: 'Swiggy',
       location: {
@@ -253,8 +194,7 @@ const Candidates: React.FC = () => {
       department: 'Design',
       hiringManager: {
         name: 'Lisa Anderson',
-        avatar:
-          'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
         title: 'Design Director',
       },
       rating: 4.2,
@@ -274,8 +214,7 @@ const Candidates: React.FC = () => {
       lastName: 'Singh',
       email: 'vikram.singh@email.com',
       phone: '+91-6543210987',
-      avatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
       currentJobTitle: 'Data Scientist',
       currentEmployer: 'Paytm',
       location: {
@@ -296,8 +235,7 @@ const Candidates: React.FC = () => {
       department: 'Analytics',
       hiringManager: {
         name: 'Dr. Anita Verma',
-        avatar:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
         title: 'Head of Analytics',
       },
       rating: 0,
@@ -337,8 +275,7 @@ const Candidates: React.FC = () => {
       department: 'Marketing',
       hiringManager: {
         name: 'Rohit Sharma',
-        avatar:
-          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
         title: 'Marketing Director',
       },
       rating: 3.2,
@@ -357,8 +294,7 @@ const Candidates: React.FC = () => {
       lastName: 'Gupta',
       email: 'rahul.gupta@email.com',
       phone: '+91-4321098765',
-      avatar:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
       currentJobTitle: 'DevOps Engineer',
       currentEmployer: 'Freshworks',
       location: {
@@ -379,8 +315,7 @@ const Candidates: React.FC = () => {
       department: 'Engineering',
       hiringManager: {
         name: 'Suresh Kumar',
-        avatar:
-          'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
         title: 'DevOps Lead',
       },
       rating: 4.0,
@@ -395,16 +330,7 @@ const Candidates: React.FC = () => {
     },
   ];
 
-  const statuses = [
-    'all',
-    'new',
-    'screening',
-    'interviewing',
-    'offer',
-    'hired',
-    'rejected',
-    'on_hold',
-  ];
+  const statuses = ['all', 'new', 'screening', 'interviewing', 'offer', 'hired', 'rejected', 'on_hold'];
   const sources = ['all', 'linkedin', 'job_board', 'referral', 'career_page', 'social_media'];
 
   // Filter candidates
@@ -592,9 +518,7 @@ const Candidates: React.FC = () => {
             </div>
             <div>
               <p className="text-xs text-gray-500">Expected Salary</p>
-              <p className="text-sm font-bold text-gray-900">
-                ₹{(candidate.expectedSalary / 100000).toFixed(1)}L
-              </p>
+              <p className="text-sm font-bold text-gray-900">₹{(candidate.expectedSalary / 100000).toFixed(1)}L</p>
             </div>
           </div>
 
@@ -603,14 +527,7 @@ const Candidates: React.FC = () => {
             <p className="text-xs text-gray-500 mb-2">Key Skills</p>
             <div className="flex flex-wrap gap-1">
               {candidate.skills.slice(0, 4).map((skill, index) => (
-                <Chip
-                  key={index}
-                  label={skill}
-                  size="small"
-                  variant="outlined"
-                  color="primary"
-                  className="text-xs"
-                />
+                <Chip key={index} label={skill} size="small" variant="outlined" color="primary" className="text-xs" />
               ))}
               {candidate.skills.length > 4 && (
                 <span className="text-xs text-gray-500">+{candidate.skills.length - 4} more</span>
@@ -644,19 +561,14 @@ const Candidates: React.FC = () => {
           <div className="mb-4 p-2 bg-blue-50 rounded-lg">
             <div className="flex items-center justify-between">
               <span className="text-xs text-blue-700 font-medium">{candidate.nextAction}</span>
-              <span className="text-xs text-blue-600">
-                {new Date(candidate.nextActionDate).toLocaleDateString()}
-              </span>
+              <span className="text-xs text-blue-600">{new Date(candidate.nextActionDate).toLocaleDateString()}</span>
             </div>
           </div>
 
           {/* Status and Actions */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
             <Chip
-              label={
-                candidate.status.charAt(0).toUpperCase() +
-                candidate.status.slice(1).replace('_', ' ')
-              }
+              label={candidate.status.charAt(0).toUpperCase() + candidate.status.slice(1).replace('_', ' ')}
               size="small"
               color={getStatusColor(candidate.status)}
               variant="filled"
@@ -746,16 +658,12 @@ const Candidates: React.FC = () => {
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                  <div className="text-sm font-medium text-gray-900">
-                    {candidate.appliedPosition}
-                  </div>
+                  <div className="text-sm font-medium text-gray-900">{candidate.appliedPosition}</div>
                   <div className="text-xs text-gray-500">{candidate.department}</div>
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                  <div className="text-sm font-bold text-gray-900">
-                    {candidate.experienceYears} years
-                  </div>
+                  <div className="text-sm font-bold text-gray-900">{candidate.experienceYears} years</div>
                   <div className="text-xs text-gray-500">{candidate.education}</div>
                 </td>
 
@@ -772,9 +680,7 @@ const Candidates: React.FC = () => {
                   {candidate.rating > 0 ? (
                     <div className="flex items-center justify-center space-x-1">
                       {renderStars(candidate.rating)}
-                      <span className="text-xs text-gray-600 ml-1">
-                        ({candidate.rating.toFixed(1)})
-                      </span>
+                      <span className="text-xs text-gray-600 ml-1">({candidate.rating.toFixed(1)})</span>
                     </div>
                   ) : (
                     <span className="text-xs text-gray-400">Not rated</span>
@@ -785,10 +691,7 @@ const Candidates: React.FC = () => {
                   <div className="flex items-center justify-center space-x-2">
                     {getStatusIcon(candidate.status)}
                     <Chip
-                      label={
-                        candidate.status.charAt(0).toUpperCase() +
-                        candidate.status.slice(1).replace('_', ' ')
-                      }
+                      label={candidate.status.charAt(0).toUpperCase() + candidate.status.slice(1).replace('_', ' ')}
                       size="small"
                       color={getStatusColor(candidate.status)}
                       variant="filled"
@@ -799,9 +702,7 @@ const Candidates: React.FC = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="flex items-center justify-center space-x-1">
                     {getSourceIcon(candidate.source)}
-                    <span className="text-sm text-gray-900 capitalize">
-                      {candidate.source.replace('_', ' ')}
-                    </span>
+                    <span className="text-sm text-gray-900 capitalize">{candidate.source.replace('_', ' ')}</span>
                   </div>
                   <div className="text-xs text-gray-500">
                     Applied: {new Date(candidate.applicationDate).toLocaleDateString()}
@@ -810,9 +711,7 @@ const Candidates: React.FC = () => {
 
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="text-sm text-gray-900">{candidate.nextAction}</div>
-                  <div className="text-xs text-gray-500">
-                    {new Date(candidate.nextActionDate).toLocaleDateString()}
-                  </div>
+                  <div className="text-xs text-gray-500">{new Date(candidate.nextActionDate).toLocaleDateString()}</div>
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-center">
@@ -849,14 +748,10 @@ const Candidates: React.FC = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Candidates</h1>
-            <p className="text-gray-600">
-              Track and manage candidate applications throughout the hiring process
-            </p>
+            <p className="text-gray-600">Track and manage candidate applications throughout the hiring process</p>
           </div>
           <div className="text-right">
-            <div className="text-2xl font-bold text-primary">
-              {currentTime.toLocaleTimeString()}
-            </div>
+            <div className="text-2xl font-bold text-primary">{currentTime.toLocaleTimeString()}</div>
             <div className="text-sm text-gray-500">
               {currentTime.toLocaleDateString('en-US', {
                 weekday: 'long',
@@ -1011,9 +906,7 @@ const Candidates: React.FC = () => {
             <button
               onClick={() => setViewMode('grid')}
               className={`p-2 rounded-md transition-colors ${
-                viewMode === 'grid'
-                  ? 'bg-white text-primary shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'grid' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <RxGrid className="w-4 h-4" />
@@ -1021,9 +914,7 @@ const Candidates: React.FC = () => {
             <button
               onClick={() => setViewMode('table')}
               className={`p-2 rounded-md transition-colors ${
-                viewMode === 'table'
-                  ? 'bg-white text-primary shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                viewMode === 'table' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               <RxRows className="w-4 h-4" />

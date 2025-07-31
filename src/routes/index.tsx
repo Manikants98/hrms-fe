@@ -57,6 +57,7 @@ const LeaveReports = lazy(() => import('../pages/reports/LeaveReports'));
 // Settings pages
 const Departments = lazy(() => import('../pages/settings/Departments'));
 const Designations = lazy(() => import('../pages/settings/Designations'));
+const Branches = lazy(() => import('../pages/settings/Branches'));
 const LeaveTypes = lazy(() => import('../pages/settings/LeaveTypes'));
 const Holidays = lazy(() => import('../pages/settings/Holidays'));
 const CompanySettings = lazy(() => import('../pages/settings/CompanySettings'));
@@ -234,6 +235,10 @@ const routes: RouteObject[] = [
   {
     path: '/settings/designations',
     element: <Designations />,
+  },
+  {
+    path: '/settings/branches',
+    element: <Branches />,
   },
   {
     path: '/settings/leave-types',
