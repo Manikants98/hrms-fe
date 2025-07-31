@@ -2,7 +2,6 @@ import React from 'react';
 
 const Clock: React.FC = () => {
   const [currentTime, setCurrentTime] = React.useState(new Date());
-  // Update current time every second
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());

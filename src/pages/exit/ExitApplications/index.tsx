@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   RxBadge,
   RxBarChart,
@@ -97,19 +97,10 @@ interface ExitApplication {
 }
 
 const ExitApplications: React.FC = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [resignationTypeFilter, setResignationTypeFilter] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
-
-  // Update current time every second
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Custom Chip component (same as other components)
   const Chip = ({
@@ -916,7 +907,7 @@ const ExitApplications: React.FC = () => {
                   </div>
                   <div className="text-xs text-gray-500">
                     {Math.ceil(
-                      (new Date(application.lastWorkingDate).getTime() - currentTime.getTime()) /
+                      (new Date(application.lastWorkingDate).getTime() - new Date().getTime()) /
                         (1000 * 60 * 60 * 24)
                     )}{' '}
                     days left
