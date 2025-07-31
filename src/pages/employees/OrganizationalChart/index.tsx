@@ -35,7 +35,6 @@ const OrganizationChart: React.FC = () => {
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Check if document is in fullscreen mode
   React.useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -45,7 +44,6 @@ const OrganizationChart: React.FC = () => {
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
 
-  // Mock organization data
   const [orgData, setOrgData] = useState<Employee>({
     id: 'CEO001',
     name: 'Robert Johnson',
@@ -53,8 +51,7 @@ const OrganizationChart: React.FC = () => {
     department: 'Executive',
     email: 'robert.johnson@company.com',
     phone: '+1 (555) 100-0001',
-    avatar:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
     isExpanded: true,
     subordinates: [
       {
@@ -64,8 +61,7 @@ const OrganizationChart: React.FC = () => {
         department: 'Technology',
         email: 'sarah.mitchell@company.com',
         phone: '+1 (555) 200-0001',
-        avatar:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
         isExpanded: true,
         subordinates: [
           {
@@ -75,8 +71,7 @@ const OrganizationChart: React.FC = () => {
             department: 'Engineering',
             email: 'john.smith@company.com',
             phone: '+1 (555) 123-4567',
-            avatar:
-              'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+            avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
             isExpanded: false,
             subordinates: [
               {
@@ -86,8 +81,7 @@ const OrganizationChart: React.FC = () => {
                 department: 'Engineering',
                 email: 'mark.thompson@company.com',
                 phone: '+1 (555) 789-0123',
-                avatar:
-                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
               },
             ],
           },
@@ -98,8 +92,7 @@ const OrganizationChart: React.FC = () => {
             department: 'Design',
             email: 'lisa.anderson@company.com',
             phone: '+1 (555) 678-9012',
-            avatar:
-              'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+            avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
             isExpanded: false,
           },
         ],
@@ -111,8 +104,7 @@ const OrganizationChart: React.FC = () => {
         department: 'Finance',
         email: 'michael.chen@company.com',
         phone: '+1 (555) 300-0001',
-        avatar:
-          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
         isExpanded: true,
         subordinates: [
           {
@@ -122,8 +114,7 @@ const OrganizationChart: React.FC = () => {
             department: 'Finance',
             email: 'jennifer.wilson@company.com',
             phone: '+1 (555) 345-6789',
-            avatar:
-              'https://images.unsplash.com/photo-1494790108755-2616c4ecc5dd?w=150&h=150&fit=crop&crop=face',
+            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
             isExpanded: false,
           },
         ],
@@ -135,8 +126,7 @@ const OrganizationChart: React.FC = () => {
         department: 'Human Resources',
         email: 'sarah.johnson@company.com',
         phone: '+1 (555) 400-0001',
-        avatar:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
         isExpanded: true,
         subordinates: [
           {
@@ -146,8 +136,7 @@ const OrganizationChart: React.FC = () => {
             department: 'Human Resources',
             email: 'emily.davis@company.com',
             phone: '+1 (555) 456-7890',
-            avatar:
-              'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+            avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
             isExpanded: false,
           },
         ],
@@ -159,8 +148,7 @@ const OrganizationChart: React.FC = () => {
         department: 'Marketing',
         email: 'david.wilson@company.com',
         phone: '+1 (555) 500-0001',
-        avatar:
-          'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
         isExpanded: false,
         subordinates: [
           {
@@ -170,8 +158,7 @@ const OrganizationChart: React.FC = () => {
             department: 'Marketing',
             email: 'amanda.rodriguez@company.com',
             phone: '+1 (555) 567-8901',
-            avatar:
-              'https://images.unsplash.com/photo-1494790108755-2616c4ecc5dd?w=150&h=150&fit=crop&crop=face',
+            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDMXuj9caIZi7mzePjf1ZESJNUhzfRGDPeJA&s',
             isExpanded: false,
           },
         ],
@@ -208,17 +195,22 @@ const OrganizationChart: React.FC = () => {
     return colors[department as keyof typeof colors] || 'bg-gray-50 border-gray-200 text-gray-700';
   };
 
-  const EmployeeCard: React.FC<{ employee: Employee; level: number }> = ({ employee, level }) => {
+  // Standard, always-connected org chart: vertical above always if parent is expanded.
+  const EmployeeCard: React.FC<{ employee: Employee; level: number; parentExpanded?: boolean }> = ({
+    employee,
+    level,
+    parentExpanded = true,
+  }) => {
     const hasSubordinates = employee.subordinates && employee.subordinates.length > 0;
     const isExpanded = employee.isExpanded;
     const cardWidth = 280;
+    const horizontalSpacing = 320;
 
     return (
       <div className="flex flex-col items-center relative">
-        {/* Vertical line from parent (positioned above the card) */}
-        {level > 0 && <div className="w-0.5 h-8 bg-gray-400 mb-0"></div>}
+        {/* Vertical line from parent (always present if parent is expanded, classic convention) */}
+        {level > 0 && parentExpanded && <div className="w-0.5 h-8 bg-gray-200 mb-0"></div>}
 
-        {/* Employee Card */}
         <div
           className={`bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 cursor-pointer relative ${
             selectedEmployee?.id === employee.id ? 'ring-2 ring-blue-500 shadow-lg' : ''
@@ -299,30 +291,22 @@ const OrganizationChart: React.FC = () => {
         {hasSubordinates && isExpanded && (
           <div className="mt-0 relative">
             {/* Vertical line down from parent card */}
-            <div className="w-0.5 h-8 bg-gray-400 mx-auto"></div>
-
-            <div className="flex justify-center items-start relative" style={{ gap: '96px' }}>
+            <div className="w-0.5 h-8 bg-gray-200 mx-auto"></div>
+            <div className="flex justify-center items-start relative" style={{ gap: '40px' }}>
               {/* Horizontal line connecting all subordinates */}
               {employee.subordinates!.length > 1 && (
                 <div
-                  className="absolute top-0 h-0.5 bg-gray-400"
+                  className="absolute top-0 h-0.5 bg-gray-200"
                   style={{
-                    left: `${cardWidth / 2}px`,
-                    right: `${cardWidth / 2}px`,
-                    width: `${(employee.subordinates!.length - 1) * 96}px`,
+                    left: '50%',
+                    width: `${(employee.subordinates!.length - 1) * horizontalSpacing}px`,
                     transform: 'translateX(-50%)',
                   }}
                 ></div>
               )}
-
               {employee.subordinates!.map((subordinate) => (
-                <div key={subordinate.id} className="relative">
-                  {/* Vertical line to each subordinate */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-8 bg-gray-400"></div>
-
-                  <div className="pt-8">
-                    <EmployeeCard employee={subordinate} level={level + 1} />
-                  </div>
+                <div key={subordinate.id} className="relative flex flex-col items-center">
+                  <EmployeeCard employee={subordinate} level={level + 1} parentExpanded={isExpanded} />
                 </div>
               ))}
             </div>
@@ -333,22 +317,16 @@ const OrganizationChart: React.FC = () => {
   };
 
   const handleZoom = (direction: 'in' | 'out' | 'reset') => {
-    if (direction === 'in' && zoomLevel < 150) {
-      setZoomLevel(zoomLevel + 10);
-    } else if (direction === 'out' && zoomLevel > 50) {
-      setZoomLevel(zoomLevel - 10);
-    } else if (direction === 'reset') {
-      setZoomLevel(100);
-    }
+    if (direction === 'in' && zoomLevel < 150) setZoomLevel(zoomLevel + 10);
+    else if (direction === 'out' && zoomLevel > 50) setZoomLevel(zoomLevel - 10);
+    else if (direction === 'reset') setZoomLevel(100);
   };
 
   const toggleFullscreen = async () => {
     try {
       if (!document.fullscreenElement) {
-        // Enter fullscreen
         await document.documentElement.requestFullscreen();
       } else {
-        // Exit fullscreen
         await document.exitFullscreen();
       }
     } catch (error) {
@@ -357,19 +335,13 @@ const OrganizationChart: React.FC = () => {
   };
 
   return (
-    <div
-      className={`${isFullscreen ? 'fixed inset-0 z-50 bg-gray-50' : ''} p-6 bg-gray-50 min-h-screen`}
-    >
-      {/* Header */}
+    <div className={`${isFullscreen ? 'fixed inset-0 z-50 bg-gray-50' : ''} p-6 bg-gray-50 min-h-screen`}>
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Organization Chart</h1>
         <p className="text-gray-600">Visualize your company's organizational structure</p>
       </div>
-
-      {/* Toolbar */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div className="flex items-center space-x-4">
-          {/* Search */}
           <div className="relative">
             <RxMagnifyingGlass className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -380,16 +352,12 @@ const OrganizationChart: React.FC = () => {
               className="pl-10 pr-4 py-2 border border-gray-400 outline-none rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
             />
           </div>
-
-          {/* Filter Button */}
           <button className="flex items-center space-x-2 px-4 py-2 border border-gray-400 rounded-lg hover:bg-gray-50 transition-colors">
             <RxMixerHorizontal className="w-4 h-4" />
             <span>Filter</span>
           </button>
         </div>
-
         <div className="flex items-center space-x-3">
-          {/* Zoom Controls */}
           <div className="flex items-center bg-white rounded-lg border border-gray-200 shadow-sm">
             <button
               onClick={() => handleZoom('out')}
@@ -398,9 +366,7 @@ const OrganizationChart: React.FC = () => {
             >
               <RxZoomOut className="w-4 h-4 text-gray-600" />
             </button>
-            <span className="px-3 py-2 text-sm font-medium text-gray-700 border-x border-gray-200">
-              {zoomLevel}%
-            </span>
+            <span className="px-3 py-2 text-sm font-medium text-gray-700 border-x border-gray-200">{zoomLevel}%</span>
             <button
               onClick={() => handleZoom('in')}
               className="p-2 hover:bg-gray-50 transition-colors"
@@ -426,16 +392,12 @@ const OrganizationChart: React.FC = () => {
               )}
             </button>
           </div>
-
-          {/* Add Employee Button */}
           <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
             <RxPlus className="w-4 h-4" />
             <span>Add Employee</span>
           </button>
         </div>
       </div>
-
-      {/* Organization Chart */}
       <div
         className={`bg-white rounded-lg shadow-sm border border-gray-200 overflow-auto ${isFullscreen ? 'h-[calc(100vh-160px)]' : ''}`}
       >
@@ -446,8 +408,6 @@ const OrganizationChart: React.FC = () => {
           <EmployeeCard employee={orgData} level={0} />
         </div>
       </div>
-
-      {/* Employee Details Sidebar */}
       {selectedEmployee && !isFullscreen && (
         <div className="fixed right-6 top-6 bottom-6 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-10 overflow-y-auto">
           <div className="p-6">
@@ -460,8 +420,6 @@ const OrganizationChart: React.FC = () => {
                 ✕
               </button>
             </div>
-
-            {/* Employee Info */}
             <div className="space-y-6">
               <div className="text-center">
                 <img
@@ -469,9 +427,7 @@ const OrganizationChart: React.FC = () => {
                   alt={selectedEmployee.name}
                   className="w-20 h-20 rounded-full object-cover mx-auto mb-4"
                 />
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                  {selectedEmployee.name}
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">{selectedEmployee.name}</h3>
                 <p className="text-gray-600 mb-2">{selectedEmployee.position}</p>
                 <span
                   className={`inline-block px-3 py-1 text-sm font-medium rounded-full border ${getDepartmentColor(selectedEmployee.department)}`}
@@ -479,7 +435,6 @@ const OrganizationChart: React.FC = () => {
                   {selectedEmployee.department}
                 </span>
               </div>
-
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <RxEnvelopeClosed className="w-5 h-5 text-gray-400" />
@@ -507,14 +462,11 @@ const OrganizationChart: React.FC = () => {
                     <RxTarget className="w-5 h-5 text-gray-400" />
                     <div>
                       <p className="text-sm text-gray-500">Direct Reports</p>
-                      <p className="font-medium text-gray-900">
-                        {selectedEmployee.subordinates.length} team members
-                      </p>
+                      <p className="font-medium text-gray-900">{selectedEmployee.subordinates.length} team members</p>
                     </div>
                   </div>
                 )}
               </div>
-
               <div className="pt-4 border-t border-gray-200">
                 <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                   View Full Profile
@@ -524,8 +476,6 @@ const OrganizationChart: React.FC = () => {
           </div>
         </div>
       )}
-
-      {/* Fullscreen Employee Details (overlay) */}
       {selectedEmployee && isFullscreen && (
         <div className="fixed top-6 right-6 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-20 max-h-[calc(100vh-48px)] overflow-y-auto">
           <div className="p-6">
@@ -538,8 +488,6 @@ const OrganizationChart: React.FC = () => {
                 ✕
               </button>
             </div>
-
-            {/* Employee Info */}
             <div className="space-y-6">
               <div className="text-center">
                 <img
@@ -547,9 +495,7 @@ const OrganizationChart: React.FC = () => {
                   alt={selectedEmployee.name}
                   className="w-20 h-20 rounded-full object-cover mx-auto mb-4"
                 />
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                  {selectedEmployee.name}
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">{selectedEmployee.name}</h3>
                 <p className="text-gray-600 mb-2">{selectedEmployee.position}</p>
                 <span
                   className={`inline-block px-3 py-1 text-sm font-medium rounded-full border ${getDepartmentColor(selectedEmployee.department)}`}
@@ -557,7 +503,6 @@ const OrganizationChart: React.FC = () => {
                   {selectedEmployee.department}
                 </span>
               </div>
-
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <RxEnvelopeClosed className="w-5 h-5 text-gray-400" />
@@ -585,14 +530,11 @@ const OrganizationChart: React.FC = () => {
                     <RxTarget className="w-5 h-5 text-gray-400" />
                     <div>
                       <p className="text-sm text-gray-500">Direct Reports</p>
-                      <p className="font-medium text-gray-900">
-                        {selectedEmployee.subordinates.length} team members
-                      </p>
+                      <p className="font-medium text-gray-900">{selectedEmployee.subordinates.length} team members</p>
                     </div>
                   </div>
                 )}
               </div>
-
               <div className="pt-4 border-t border-gray-200">
                 <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                   View Full Profile
